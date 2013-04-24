@@ -1,4 +1,8 @@
 OfferRails::Application.routes.draw do
+  root to: 'static#index'
+  
+  match 'changelog', to: 'static#changelog'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
