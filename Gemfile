@@ -18,6 +18,7 @@ group :test do
 end
 
 group :production do
+  gem 'pg'
 end
 
 # Gems used only for assets and not required
