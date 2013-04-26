@@ -2,7 +2,7 @@ $ ->
   window.dataExplorer = null
   window.explorerDiv = $ "#explorer"
   dataset = new recline.Model.Dataset
-    url: "/offer/index/offer_stat_csv"
+    url: "/offers.csv"
     backend: "csv"
     fields: [
       id: "ranking"

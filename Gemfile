@@ -8,6 +8,7 @@ gem 'active_link_to' # active_link_to for bootstrap navigation
 gem 'simple_form'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'comma'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'

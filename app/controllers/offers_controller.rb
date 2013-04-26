@@ -29,6 +29,13 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+    respond_to do |format|
+      format.html
+      format.csv do
+        @schools = School.all_count
+        render text: to_csv(@schools)
+      end
+    end
   end
 
   # GET /offers/exist?person=&school=
