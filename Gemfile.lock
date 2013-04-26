@@ -32,6 +32,11 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    backbone-on-rails (1.0.0.0)
+      eco
+      ejs
+      jquery-rails
+      rails (>= 3.1)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
@@ -52,6 +57,12 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     diff-lcs (1.2.4)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
+    ejs (1.1.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -60,6 +71,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    flot-rails (0.0.3)
+      jquery-rails
     haml (4.0.2)
       tilt
     haml-rails (0.4)
@@ -70,16 +83,26 @@ GEM
     hike (1.2.2)
     i18n (0.6.1)
     journey (1.0.4)
+    jquery-plugins-rails (0.1.1)
+      jquery-rails
+      railties (~> 3.0)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.0.2)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.7)
+    leaflet-markercluster-rails (0.2.1)
+      railties (~> 3.1)
+    leaflet-rails (0.5.0)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.2)
+    mustachejs-rails (0.7.1)
     nokogiri (1.5.9)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -130,6 +153,12 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    slickgrid-rails (0.2.0)
+      coffee-rails
+      jquery-plugins-rails
+      jquery-rails
+      railties (~> 3.0)
+      sass-rails
     specific_assets (0.1.0)
     spork (0.9.2)
     sprockets (2.2.2)
@@ -143,10 +172,15 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.6)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    underscore-rails (1.4.4)
     will_paginate (3.0.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -157,22 +191,31 @@ PLATFORMS
 DEPENDENCIES
   active_link_to
   annotate
+  backbone-on-rails
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass
   bootstrap-will_paginate
   capybara
   coffee-rails (~> 3.2.1)
   factory_girl_rails
+  flot-rails
   haml-rails
   jquery-rails
+  jquery-ui-rails
+  leaflet-markercluster-rails
+  leaflet-rails
+  mustachejs-rails
   pg
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)
   select2-rails
   simple_form
+  slickgrid-rails
   specific_assets
   spork
   sqlite3
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  underscore-rails
   will_paginate

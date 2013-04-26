@@ -11,7 +11,17 @@ gem 'bootstrap-will_paginate'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'twitter-bootstrap-rails'
 gem 'select2-rails'
+
+# recline.js dependencies
+gem 'underscore-rails'
+gem 'backbone-on-rails'
+gem 'mustachejs-rails'
+gem 'flot-rails'
+gem 'leaflet-rails'
+gem 'leaflet-markercluster-rails'
+gem 'jquery-ui-rails'
 
 group :development do
   gem 'sqlite3'

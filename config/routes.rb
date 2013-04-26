@@ -1,5 +1,5 @@
 OfferRails::Application.routes.draw do
-  root to: 'static#index'
+  root to: 'offers#index'
   
   match 'changelog', to: 'static#changelog'
 

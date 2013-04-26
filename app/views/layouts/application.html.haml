@@ -8,7 +8,7 @@
       =stylesheet_link_tag css
     = csrf_meta_tags
     - if not yield(:recline).empty?
-      =javascript_include_tag 'recline'
+      =stylesheet_link_tag 'reclinecss'
     /[if lt IE 9]
       %script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
   %body
@@ -23,5 +23,7 @@
     = javascript_include_tag 'application'
     - js_assets.each do |js|
       =javascript_include_tag js
+    - if not yield(:recline).empty?
+      =javascript_include_tag 'reclinejs'
     = javascript_include_tag params[:controller]
     = javascript_include_tag params[:controller] + '/' + params[:action]
