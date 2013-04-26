@@ -3,18 +3,26 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'haml-rails'
 
-gem 'jquery-rails'
-gem 'bootstrap-sass'
-
+gem 'specific_assets'
+gem 'active_link_to' # active_link_to for bootstrap navigation
+gem 'simple_form'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem 'select2-rails'
 
 group :development do
   gem 'sqlite3'
   gem 'annotate'
+  gem 'rspec-rails'
 end
 
 group :test do
+  gem 'capybara'
+  gem 'spork'
+  gem 'factory_girl_rails'
 end
 
 group :production do

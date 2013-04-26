@@ -3,6 +3,11 @@ OfferRails::Application.routes.draw do
   
   match 'changelog', to: 'static#changelog'
 
+  resources :offers
+  resources :schools, only: [:index]
+  resources :sessions, only: [:new, :create, :destroy]
+  match 'login', to: 'session#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
