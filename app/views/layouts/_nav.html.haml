@@ -4,4 +4,7 @@
       =link_to '人大附中2013届出国生录取结果统计系统', root_path, class: 'brand'
       .nav-collapse.collapse
         %ul.nav
-          %li=link_to 'Home', root_path
+          =active_link_to '录取结果统计', root_path, wrap_tag: :li
+          =active_link_to '查看学校信息', schools_path, wrap_tag: :li
+          =active_link_to '查看详细结果', offers_path, wrap_tag: :li
+          %li.pull-right=link_to '登录', login_path

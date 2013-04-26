@@ -4,8 +4,16 @@
     %meta{charset: 'utf-8'}
     %title= full_title yield :title
     = stylesheet_link_tag    'application', media: 'all'
+    - css_assets.each do |css|
+      =stylesheet_link_tag css
     = javascript_include_tag 'application'
+    = javascript_include_tag params[:controller]
+    = javascript_include_tag params[:controller] + '/' + params[:action]
     = csrf_meta_tags
+    - js_assets.each do |js|
+      =javascript_include_tag js
+    - if not yield(:recline).empty?
+      =javascript_include_tag 'recline'
     /[if lt IE 9]
       %script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
   %body
