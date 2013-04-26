@@ -7,10 +7,11 @@ module ApplicationHelper
 
   def to_csv(record)
     require 'csv'
-    s = record.first.attributes.keys.to_csv
-    record.each do |r|
-      s += r.attributes.values.to_csv
+    CSV.generate force_quotes: true do |csv|
+      csv << record.first.attributes.keys
+      record.each do |r|
+        csv << r.attributes.values
+      end
     end
-    s
   end
 end

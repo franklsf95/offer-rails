@@ -31,10 +31,7 @@ class OffersController < ApplicationController
     @offers = Offer.all
     respond_to do |format|
       format.html
-      format.csv do
-        @schools = School.all_count
-        render text: to_csv(@schools)
-      end
+      format.csv { render text: to_csv(School.all_count) }
     end
   end
 
