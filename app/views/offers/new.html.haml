@@ -1,0 +1,12 @@
+-provide :title, '添加offer'
+-add_css 'select2'
+-add_js 'select2'
+=simple_form_for @offer, html: { class: 'form-horizontal' } do |f|
+  =field_set_tag '添加新记录' do
+    =render 'shared/error_messages', object: f.object
+    =f.input :person, label: '姓名'
+    =f.input :school, collection: @schools, label_method: :name, value_method: :id, input_html: { multiple: true, class: 'span4' }, label: '学校'
+    =f.button :submit, '提交', class: 'btn-primary offset2', label: '添加记录'
+%hr
+%h4 Duplication Check
+%output#dup-check No record entered.

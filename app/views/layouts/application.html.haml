@@ -3,15 +3,10 @@
   %head
     %meta{charset: 'utf-8'}
     %title= full_title yield :title
-    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
     - css_assets.each do |css|
       =stylesheet_link_tag css
-    = javascript_include_tag 'application'
-    = javascript_include_tag params[:controller]
-    = javascript_include_tag params[:controller] + '/' + params[:action]
     = csrf_meta_tags
-    - js_assets.each do |js|
-      =javascript_include_tag js
     - if not yield(:recline).empty?
       =javascript_include_tag 'recline'
     /[if lt IE 9]
@@ -24,3 +19,9 @@
       = yield
       = render 'layouts/footer'
       = debug params
+  
+    = javascript_include_tag 'application'
+    - js_assets.each do |js|
+      =javascript_include_tag js
+    = javascript_include_tag params[:controller]
+    = javascript_include_tag params[:controller] + '/' + params[:action]

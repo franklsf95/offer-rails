@@ -11,4 +11,6 @@ class Person < ActiveRecord::Base
 
   has_many :offers, dependent: :destroy
   has_many :schools, through: :offers, dependent: :destroy
+
+  validates :name, presence: true
 end

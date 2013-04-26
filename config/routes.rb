@@ -3,7 +3,11 @@ OfferRails::Application.routes.draw do
   
   match 'changelog', to: 'static#changelog'
 
-  resources :offers
+  resources :offers do
+    collection do
+      get 'exist'
+    end
+  end
   resources :schools, only: [:index]
   resources :sessions, only: [:new, :create, :destroy]
   match 'login', to: 'session#new'
