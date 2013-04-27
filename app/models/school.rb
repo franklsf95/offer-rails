@@ -29,10 +29,8 @@ class School < ActiveRecord::Base
   end
 
   def self.all_count
-    School.select('ranking, name as school, count(offers.id) as count, city, state, lat, lon')
-          .joins(:offers)
-          .group('school')
-          .having('count > 0')
+    School.select('ranking, name as school, offers_count, city, state, lat, lon')
+          .where('offers_count > 0')
           .order('ranking DESC')
   end
 end

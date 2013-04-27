@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425053836) do
+ActiveRecord::Schema.define(:version => 20130427023423) do
 
   create_table "offers", :force => true do |t|
     t.integer  "person_id"
@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(:version => 20130425053836) do
   add_index "offers", ["school_id"], :name => "index_offers_on_school_id"
 
   create_table "people", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "offers_count"
   end
 
   create_table "schools", :force => true do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130425053836) do
     t.string  "retention_rate"
     t.string  "graduation_rate"
     t.string  "group"
+    t.integer "offers_count"
   end
 
 end

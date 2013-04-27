@@ -32,6 +32,7 @@ class OffersController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { render text: to_csv(School.all_count) }
+      format.json { render json: School.all_count }
     end
   end
 

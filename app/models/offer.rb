@@ -16,6 +16,6 @@ class Offer < ActiveRecord::Base
   validates :person_id, presence: true
   validates :school_id, presence: true
 
-  belongs_to :person
-  belongs_to :school
+  belongs_to :person, counter_cache: true
+  belongs_to :school, counter_cache: true
 end

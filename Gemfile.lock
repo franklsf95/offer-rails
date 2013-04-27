@@ -56,7 +56,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    comma (3.0.4)
     diff-lcs (1.2.4)
     eco (1.0.0)
       coffee-script
@@ -189,7 +188,6 @@ DEPENDENCIES
   bootstrap-will_paginate
   capybara
   coffee-rails (~> 3.2.1)
-  comma
   factory_girl_rails
   flot-rails
   haml-rails
