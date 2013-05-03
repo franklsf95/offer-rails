@@ -1,6 +1,6 @@
-//= require slick.core
 //= require jquery.ui.sortable
 //= require jquery.event.drag
+//= require slick.core
 /**
  * @license
  * (c) 2009-2012 Michael Leibman
@@ -58,7 +58,7 @@ if (typeof Slick === "undefined") {
   function SlickGrid(container, data, columns, options) {
     // settings
     var defaults = {
-      explicitInitialization: false,
+      explicitInitialization: true,
       rowHeight: 25,
       defaultColumnWidth: 80,
       enableAddRow: false,
@@ -69,7 +69,7 @@ if (typeof Slick === "undefined") {
       enableColumnReorder: true,
       asyncEditorLoading: false,
       asyncEditorLoadDelay: 100,
-      forceFitColumns: false,
+      forceFitColumns: true,
       enableAsyncPostRender: false,
       asyncPostRenderDelay: 50,
       autoHeight: false,
@@ -88,7 +88,7 @@ if (typeof Slick === "undefined") {
       fullWidthRows: false,
       multiColumnSort: false,
       defaultFormatter: defaultFormatter,
-      forceSyncScrolling: false
+      forceSyncScrolling: true
     };
 
     var columnDefaults = {

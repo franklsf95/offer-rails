@@ -4,5 +4,5 @@
 //= require jquery.flot
 //= require leaflet
 //= require leaflet.markercluster
-//= require slick.grid
+//= no require slick.grid
 //= require recline
