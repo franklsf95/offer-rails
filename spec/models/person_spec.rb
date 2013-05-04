@@ -2,8 +2,9 @@
 #
 # Table name: people
 #
-#  id   :integer          not null, primary key
-#  name :string(255)
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  offers_count :integer
 #
 
 require 'spec_helper'

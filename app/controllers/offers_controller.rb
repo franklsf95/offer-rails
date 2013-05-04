@@ -2,7 +2,7 @@
 class OffersController < ApplicationController
   def new
     @offer = Offer.new
-    @schools = School.list
+    @schools = School.all_brief
   end
 
   def create

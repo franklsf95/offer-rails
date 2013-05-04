@@ -10,7 +10,7 @@ OfferRails::Application.routes.draw do
   end
   resources :schools, only: [:index]
   resources :sessions, only: [:new, :create, :destroy]
-  match 'login', to: 'session#new'
+  match 'login', to: 'sessions#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

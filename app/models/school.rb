@@ -15,6 +15,7 @@
 #  retention_rate  :string(255)
 #  graduation_rate :string(255)
 #  group           :string(255)
+#  offers_count    :integer
 #
 
 class School < ActiveRecord::Base

@@ -2,8 +2,9 @@
 #
 # Table name: people
 #
-#  id   :integer          not null, primary key
-#  name :string(255)
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  offers_count :integer
 #
 
 class Person < ActiveRecord::Base
@@ -11,6 +12,7 @@ class Person < ActiveRecord::Base
 
   has_many :offers, dependent: :destroy
   has_many :schools, through: :offers, dependent: :destroy
+  belongs_to :user
 
   validates :name, presence: true
 end
