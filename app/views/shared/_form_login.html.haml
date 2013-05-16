@@ -1,0 +1,7 @@
+=simple_form_for :session, url: sessions_path, html: {class: 'form-horizontal'} do |f|
+  =field_set_tag do
+    / =render 'shared/error_messages', object: f.object
+    =f.input_field :email, placeholder: 'E-mail'
+    =f.input_field :password, placeholder: '密码'
+    =f.button :submit, '登录', class: 'btn-primary'
+    =link_to '新用户注册', new_user_path

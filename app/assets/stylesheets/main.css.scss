@@ -7,3 +7,19 @@ body {
 .select2-container {
   margin-left: 0;
 }
+
+#drop-login {
+  width: 220px;
+  form {
+    margin: 0;
+    padding: 10px 15px;
+    input {
+      width: 170px;
+      margin-bottom: 10px;
+    }
+    .btn {
+      width: 75px;
+      margin-right: 20px;
+    }
+  }
+}
