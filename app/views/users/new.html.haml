@@ -1,0 +1,13 @@
+-provide :title, '创建新用户'
+%h2 创建新用户
+.alert.alert-info
+  %p 在创建新用户之前，请确认你是人大附中2013届出国同学，并且添加了至少一个 offer 记录。
+=simple_form_for @user, html: {class: 'form-horizontal'} do |f|
+  =field_set_tag do
+    =render 'shared/error_messages', object: f.object
+    =f.input :email, label: '电子邮箱', hint: '填写的E-mail地址用于登录'
+    =f.input :password, label: '密码'
+    =f.input :password_confirmation, label: '确认密码'
+    =f.input :name, label: '姓名', readonly: true
+    =f.hidden_field :person_id
+    =f.button :submit, '注册', class: 'btn-primary btn-large offset2'

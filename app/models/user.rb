@@ -9,10 +9,17 @@
 #  password_digest       :string(255)
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  name                  :string(255)
+#  class_id              :integer
+#  alt_email             :string(255)
+#  cell_cn               :string(255)
+#  cell_us               :string(255)
+#  person_id             :integer
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation,
+      :name, :class_id, :alt_email, :cell_cn, :cell_us, :person_id
 
   before_save do |user|
     user.email.downcase!
@@ -27,5 +34,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  has_one :person
+  belongs_to :person
 end

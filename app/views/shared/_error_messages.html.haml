@@ -1,7 +1,7 @@
 - if object.errors.any?
   #error_explaination
     .alert.alert-error
-      = "The form contains #{pluralize object.errors.count, 'error'}"
-    %ul
-      - object.errors.full_messages.each do |msg|
-        %li= msg
+      = "提交的表单中包含 #{object.errors.count} 个错误："
+      %ul
+        - object.errors.full_messages.each do |msg|
+          %li= msg

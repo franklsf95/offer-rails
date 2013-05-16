@@ -10,7 +10,12 @@ OfferRails::Application.routes.draw do
   end
   resources :schools, only: [:index]
   resources :sessions, only: [:create, :destroy]
-  resources :users
+  resources :users do
+    collection do
+      get 'prepare'
+    end
+  end
+
 
   match '/logout', to: 'sessions#destroy', via: :delete
 

@@ -12,7 +12,7 @@ class Person < ActiveRecord::Base
 
   has_many :offers, dependent: :destroy
   has_many :schools, through: :offers, dependent: :destroy
-  belongs_to :user
+  has_one :user
 
   validates :name, presence: true
 end

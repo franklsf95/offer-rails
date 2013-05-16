@@ -11,6 +11,8 @@
             -if signed_in?
               %a{href: '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}} 我的账户
               %ul.dropdown-menu
+                %li=link_to '我的主页', current_user
+                %li.divider
                 %li=link_to '登出', logout_path, method: :delete
             -else
               %a{href: '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}} 登录
