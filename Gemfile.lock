@@ -49,6 +49,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -63,7 +64,11 @@ GEM
       execjs
     eco-source (1.1.0.rc.1)
     ejs (1.1.1)
+    em-websocket (0.5.0)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.5.3)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.2.0)
@@ -71,16 +76,22 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    ffi (1.8.1)
     flot-rails (0.0.3)
       jquery-rails
-    haml (4.0.2)
-      tilt
-    haml-rails (0.4)
-      actionpack (>= 3.1, < 4.1)
-      activesupport (>= 3.1, < 4.1)
-      haml (>= 3.1, < 4.1)
-      railties (>= 3.1, < 4.1)
+    formatador (0.2.4)
+    guard (1.8.0)
+      formatador (>= 0.2.4)
+      listen (>= 1.0.0)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
+      thor (>= 0.14.6)
+    guard-livereload (1.4.0)
+      em-websocket (>= 0.5.0)
+      guard (>= 1.8.0)
+      multi_json (~> 1.7)
     hike (1.2.2)
+    http_parser.rb (0.5.3)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -93,19 +104,31 @@ GEM
     leaflet-markercluster-rails (0.2.1)
       railties (~> 3.1)
     leaflet-rails (0.5.0)
+    listen (1.1.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      rb-kqueue (>= 0.2)
+    lumberjack (1.0.3)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.2)
     mustachejs-rails (0.7.1)
     nokogiri (1.5.9)
     pg (0.15.1)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-livereload (0.3.14)
+      rack
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -126,6 +149,11 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.4)
+    rb-fsevent (0.9.3)
+    rb-inotify (0.9.0)
+      ffi (>= 0.5.0)
+    rb-kqueue (0.2.0)
+      ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     rspec-core (2.13.1)
@@ -150,6 +178,10 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    slim (1.3.8)
+      temple (~> 0.6.3)
+      tilt (~> 1.3.3)
+    slop (3.4.5)
     specific_assets (0.1.0)
     spork (0.9.2)
     sprockets (2.2.2)
@@ -158,6 +190,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
+    temple (0.6.4)
+    terminal-notifier-guard (1.5.3)
     thor (0.18.1)
     tilt (1.3.7)
     treetop (1.4.12)
@@ -190,21 +224,25 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   flot-rails
-  haml-rails
+  guard
+  guard-livereload
   jquery-rails
   jquery-ui-rails
   leaflet-markercluster-rails
   leaflet-rails
   mustachejs-rails
   pg
+  rack-livereload
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)
   select2-rails
   simple_form
+  slim
   specific_assets
   spork
   sqlite3
+  terminal-notifier-guard
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   underscore-rails

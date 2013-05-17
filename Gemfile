@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'haml-rails'
+gem 'slim'
 
 gem 'specific_assets'
 gem 'active_link_to' # active_link_to for bootstrap navigation
@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
+# assets
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
@@ -27,6 +28,10 @@ group :development do
   gem 'sqlite3'
   gem 'annotate'
   gem 'rspec-rails'
+  gem 'guard'
+  gem 'terminal-notifier-guard'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
 end
 
 group :test do

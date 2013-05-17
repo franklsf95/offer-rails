@@ -2,6 +2,6 @@
   #error_explaination
     .alert.alert-error
       = "提交的表单中包含 #{object.errors.count} 个错误："
-      %ul
+      ul
         - object.errors.full_messages.each do |msg|
-          %li= msg
+          li= msg

@@ -7,6 +7,6 @@
     =f.input :person, label: '姓名'
     =f.input :school, collection: @schools, label_method: :name, value_method: :id, input_html: { multiple: true, class: 'span4' }, label: '学校'
     =f.button :submit, '提交', class: 'btn-primary offset2', label: '添加记录'
-%hr
-%h4 Duplication Check
-%output#dup-check No record entered.
+hr
+h4 Duplication Check
+output#dup-check No record entered.

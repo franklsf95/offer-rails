@@ -1,21 +1,22 @@
-!!! 5
-%html
-  %head
-    %meta{charset: 'utf-8'}
-    %title= full_title yield :title
+doctype 5
+html
+  head
+    meta charset='utf-8'
+    title= full_title yield :title
     = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag params[:controller]
     - css_assets.each do |css|
       =stylesheet_link_tag css
     = csrf_meta_tags
     - if not yield(:recline).empty?
       =stylesheet_link_tag 'reclinecss'
-    /[if lt IE 9]
-      %script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
-  %body
+    /![if lt IE 9]
+      script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
+  body
     = render 'layouts/nav'
     .container
       - flash.each do |key, val|
-        .alert{class: "alert-#{key}"}= val
+        .alert class="alert-#{key}"
       = yield
       = render 'layouts/footer'
       = debug params
