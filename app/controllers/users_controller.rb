@@ -1,19 +1,7 @@
 #encoding: UTF-8
 class UsersController < ApplicationController
   def new
-    pid = params[:person_id]
-    if pid.nil?
-      flash[:error] = '请先选择一个同学身份，再进行注册。'
-      redirect_to prepare_users_path
-    else
-      @person = Person.find pid
-      if !@person.nil?
-        flash[:error] = "#{@person.name} 已经领取并注册了账户！请重试。"
-        redirect_to prepare_users_path
-      else
-        @user = User.new name: @person.name, person_id: pid
-      end
-    end
+    @user = User.new
   end
 
   def create
@@ -25,10 +13,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  # Claim a person before signing up
-  def prepare
   end
   
   def show

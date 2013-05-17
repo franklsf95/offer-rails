@@ -4,18 +4,14 @@ OfferRails::Application.routes.draw do
   match 'changelog', to: 'static#changelog'
 
   resources :offers do
-    collection do
-      get 'exist'
-    end
+    collection { get 'exist' }
   end
   resources :schools, only: [:index]
   resources :sessions, only: [:create, :destroy]
-  resources :users do
-    collection do
-      get 'prepare'
-    end
+  resources :users
+  resources :people, only: [] do
+    collection { get 'available' }
   end
-
 
   match '/logout', to: 'sessions#destroy', via: :delete
 

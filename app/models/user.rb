@@ -34,5 +34,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  validates :name,      presence: true
+  validates :person_id, presence: true, uniqueness: true
+
   belongs_to :person
 end
