@@ -37,5 +37,9 @@ class User < ActiveRecord::Base
   validates :name,      presence: true
   validates :person_id, presence: true, uniqueness: true
 
+  validates :alt_email, format: { with: VALID_EMAIL_REGEX }
+  validates :cell_cn, length: { is: 11 }
+  validates :cell_us, length: { is: 10 }
+
   belongs_to :person
 end

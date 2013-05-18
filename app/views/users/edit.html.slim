@@ -1,0 +1,12 @@
+-provide :title, @user.name
+h2=@user.name
+=simple_form_for @user, html: {class: 'form-horizontal'} do |f|
+  =field_set_tag '编辑个人资料' do
+    =render 'shared/error_messages', object: f.object
+    =f.input :name, label: '姓名', readonly: true
+    =f.input :email, label: '电子邮箱', readonly: true
+    =f.input :class_id, label: '班级', collection: class_collection, label_method: lambda { |h| h[:label] }, value_method: lambda { |h| h[:value] }
+    =f.input :alt_email, label: '大学 E-mail'
+    =f.input :cell_cn, label: '手机 (中国)'
+    =f.input :cell_us, label: '电话 (美国)'
+    =f.button :submit, '更新资料', class: 'btn-primary btn-large offset2'
