@@ -5,8 +5,12 @@ h2=@user.name
     =render 'shared/error_messages', object: f.object
     =f.input :name, label: '姓名', readonly: true
     =f.input :email, label: '电子邮箱', readonly: true
-    =f.input :class_id, label: '班级', collection: class_collection, label_method: lambda { |h| h[:label] }, value_method: lambda { |h| h[:value] }
+    =f.input :class_id, label: '在校班级', collection: class_collection, label_method: lambda {|h| h[:k]}, value_method: lambda {|h| h[:v]}
+    =f.input :facebook, label: 'Facebook 姓名或ID'
     =f.input :alt_email, label: '大学 E-mail'
     =f.input :cell_cn, label: '手机 (中国)'
     =f.input :cell_us, label: '电话 (美国)'
+    =f.input :skype, label: 'Skype ID'
+    hr/
+    =f.input :school_id, label: '大学', hint: '如无录取学校，请<a href="/offers/new">添加一条 offer 记录</a>', collection: @user.person.schools, label_method: :name, value_method: :id
     =f.button :submit, '更新资料', class: 'btn-primary btn-large offset2'

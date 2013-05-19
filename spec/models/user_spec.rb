@@ -15,6 +15,10 @@
 #  cell_cn               :string(255)
 #  cell_us               :string(255)
 #  person_id             :integer
+#  school_id             :integer
+#  skype                 :string(255)
+#  facebook              :string(255)
+#  notes                 :text
 #
 
 require 'spec_helper'

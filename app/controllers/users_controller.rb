@@ -22,10 +22,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user defined in correct_user()
+    #@user already defined in correct_user
   end
 
   def update
+    #@user already defined in correct_user
     if @user.update_attributes(params[:user])
       flash[:success] = '成功更新了个人信息！'
       redirect_to @user
@@ -35,19 +36,12 @@ class UsersController < ApplicationController
   end
 
   private
-  # include SessionsHelper
   def signed_in_user
-    unless signed_in?
-      flash[:error] = '请先登录。'
-      redirect_to root_path
-    end
+    redirect_to root_path error: '请先登录。' unless signed_in?
   end
 
   def correct_user
     @user = User.find params[:id]
-    unless current_user == @user
-      flash[:error] = '不能修改其他用户的信息。'
-      redirect_to root_path
-    end
+    redirect_to @user, error: '不能修改其他用户的信息。' unless current_user == @user
   end
 end

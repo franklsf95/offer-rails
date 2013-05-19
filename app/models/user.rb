@@ -15,11 +15,16 @@
 #  cell_cn               :string(255)
 #  cell_us               :string(255)
 #  person_id             :integer
+#  school_id             :integer
+#  skype                 :string(255)
+#  facebook              :string(255)
+#  notes                 :text
 #
 
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
-      :name, :class_id, :alt_email, :cell_cn, :cell_us, :person_id
+      :name, :class_id, :alt_email, :cell_cn, :cell_us,
+      :person_id, :school_id, :skype, :facebook, :notes
 
   before_save do |user|
     user.email.downcase!
@@ -31,15 +36,16 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, length: { minimum: 6 }, confirmation: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
 
   validates :name,      presence: true
   validates :person_id, presence: true, uniqueness: true
 
-  validates :alt_email, format: { with: VALID_EMAIL_REGEX }
-  validates :cell_cn, length: { is: 11 }
-  validates :cell_us, length: { is: 10 }
+  validates :alt_email, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
+  validates :cell_cn, length: { is: 11 }, allow_blank: true
+  validates :cell_us, length: { is: 10 }, allow_blank: true
 
   belongs_to :person
+  has_one :school
 end
