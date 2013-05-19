@@ -15,8 +15,8 @@ html
   body
     = render 'layouts/nav'
     .container
-      - flash.each do |key, val|
-        .alert class="alert-#{key}"
+      - flash.each do |k, v|
+        .alert class="alert-#{k}" =v
       = yield
       = render 'layouts/footer'
       = debug params
