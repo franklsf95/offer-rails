@@ -1,3 +1,4 @@
+#= require select2
 $p = $ '#offer_person'
 $s = $ '#offer_school'
 $d = $ '#dup-check'

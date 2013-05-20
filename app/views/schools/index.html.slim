@@ -1,3 +1,4 @@
+-provide :title, '学校信息一览表'
 -provide :datatable, true
 h2 U.S. Universities and Colleges
 =render 'shared/datatable', columns: [{ranking: 'Ranking'}, {name: 'School'}, {city: 'City'}, {state: 'State'}, {tuition: 'Tuition'}, {enrollment: 'Enrollment'}, {accept_rate: 'Accept'}, {retention_rate: 'Rentention'}, {graduation_rate: 'Graduation'}], data: @schools

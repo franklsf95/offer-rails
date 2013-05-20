@@ -1,13 +1,14 @@
+-provide :title, '去向统计表'
 -provide :datatable, true
 h2
   | 陈涉少时，尝与人佣耕，辍耕之垄上，怅恨久之，曰：
   br 「苟富贵，无相忘。」——《史记·陈涉世家》
 =render 'shared/datatable', columns: [{name: '姓名'}, {class: '班级'}, {school: '大学'}, {city: 'City'}, {state: 'State'}], data: @users, rowlink: true
-.btn-group
-  =link_to '添加新offer', new_offer_path, class: 'btn btn-large btn-primary span2'
-  =link_to '注册新用户', new_user_path, class: 'btn btn-large btn-info span2'
-  =link_to '更新我的信息', edit_user_path(current_user), class: 'btn btn-large btn-success span2'
-  =link_to '地图模式', map_users_path, class: 'btn btn-large btn-warning span2'
-  =link_to '下载联系表 (CSV)', users_path(format: :json), class: 'btn btn-large btn-danger span2'
+.btn-group#nav-btns
+  =link_to '添加新offer', new_offer_path, class: 'btn btn-large btn-primary'
+  =link_to '注册新用户', new_user_path, class: 'btn btn-large btn-info'
+  =link_to '更新我的信息', edit_user_path(current_user), class: 'btn btn-large btn-success'
+  =link_to '去向统计表', users_path, class: 'btn btn-large btn-warning'
+  =link_to '地图模式', map_users_path, class: 'btn btn-large btn-primary'
+  =link_to '下载联系表', users_path(format: :json), class: 'btn btn-large btn-danger'
 .clearfix
-=debug @users

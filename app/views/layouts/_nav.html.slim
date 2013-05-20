@@ -4,15 +4,16 @@
       =link_to OfferRails::Application.config.APP_TITLE, root_path, class: 'brand'
       .nav-collapse.collapse
         ul.nav
-          li=link_to '录取结果统计', root_path
-          li=link_to '学校信息一览', schools_path
+          =active_link_to '录取结果统计', offers_path, wrap_tag: :li
+          =active_link_to '学校信息一览', schools_path, wrap_tag: :li
           li.dropdown
             a href='#' class='dropdown-toggle' data-toggle='dropdown' 同学录
             ul.dropdown-menu
-              li=link_to '最终去向统计', users_path
+              li=link_to '去向统计表', users_path
               li=link_to '地图模式', map_users_path
-              li.divider
-              li=link_to '编辑我的信息', edit_user_path(current_user)
+              -if signed_in?
+                li.divider
+                li=link_to '编辑我的信息', edit_user_path(current_user)
         ul.nav.pull-right
           li.dropdown
             -if signed_in?

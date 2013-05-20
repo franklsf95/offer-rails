@@ -1,6 +1,6 @@
 -provide :title, '添加offer'
 -add_css 'select2'
--add_js 'select2'
+-add_js 'offers/new'
 =simple_form_for @offer, html: { class: 'form-horizontal' } do |f|
   =field_set_tag '添加新记录' do
     =render 'shared/error_messages', object: f.object

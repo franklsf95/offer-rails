@@ -1,4 +1,4 @@
--if rowlink
+-if defined? rowlink
   -add_css 'bootstrap-rowlink'
   -add_js 'bootstrap-rowlink'
 table#datatable.table.table-bordered.table-striped.table-condensed data-provides='rowlink'
@@ -11,5 +11,5 @@ table#datatable.table.table-bordered.table-striped.table-condensed data-provides
       tr
         -columns.each do |c|
           td=o[c.keys.first]
-        -if rowlink
+        -if defined? rowlink
           td style='display: none;' =link_to '', user_path(o[:id])

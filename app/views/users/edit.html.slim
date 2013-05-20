@@ -1,4 +1,5 @@
 -provide :title, @user.name
+-add_js 'users/edit'
 h2=@user.name
 =simple_form_for @user, html: {class: 'form-horizontal'} do |f|
   =field_set_tag '编辑个人资料' do
@@ -12,5 +13,5 @@ h2=@user.name
     =f.input :cell_us, label: '电话 (美国)'
     =f.input :skype, label: 'Skype ID'
     hr/
-    =f.input :school_id, label: '大学', hint: '如无录取学校，请<a href="/offers/new">添加一条 offer 记录</a>', collection: @user.person.schools, label_method: :name, value_method: :id
+    =f.input :school_id, label: '最终去向', hint: '如无录取学校，请<a href="/offers/new">添加一条 offer 记录</a>', collection: @user.person.schools, label_method: :name, value_method: :id
     =f.button :submit, '更新资料', class: 'btn-primary btn-large offset2'

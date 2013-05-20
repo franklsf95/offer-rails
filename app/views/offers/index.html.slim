@@ -6,6 +6,7 @@ h2
   h4 欢迎使用人大附中2013届出国学生录取结果统计系统！
   ol
     li 此系统中提供的录取信息由用户生成、人工审核；欢迎大家踊跃提供自己所知的真实信息！
+    li 请 RDFZ 2013ers 使用页面底部链接领取自己的用户，填写自己的最终去向和联系方式！
     li
       | 学校信息摘自
       a href='http://colleges.usnews.rankingsandreviews.com/best-colleges' US News 2012 大学排名
@@ -15,6 +16,7 @@ h2
       span.label.label-success Email me!
       | 按钮。
 =render 'shared/datatable', columns: [{ranking: 'Ranking'}, {name: 'School'}, {offers_count: 'Offers Count'}, {city: 'City'}, {state: 'State'}], data: @offers
-=link_to '添加新的录取结果', new_offer_path, class: 'btn btn-large btn-primary span5'
-=link_to '填写最终去向', new_user_path, class: 'btn btn-large btn-success span5'
+.btn-group
+  =link_to '添加新的录取结果', new_offer_path, class: 'btn btn-large btn-success span5'
+  =link_to '注册账号，填写最终去向和联系方式', new_user_path, class: "btn btn-large btn-primary span6 #{signed_in? ? 'disabled' : ''}"
 .clearfix
