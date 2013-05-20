@@ -2,7 +2,7 @@
 h2
   | 陈涉少时，尝与人佣耕，辍耕之垄上，怅恨久之，曰：
   br 「苟富贵，无相忘。」——《史记·陈涉世家》
-.alert.alert-info style='padding: 15px 20px;'
+.alert.alert-info style='padding: 15px 20px; margin-bottom: 5px;'
   h4 欢迎使用人大附中2013届出国学生录取结果统计系统！
   ol
     li 此系统中提供的录取信息由用户生成、人工审核；欢迎大家踊跃提供自己所知的真实信息！
@@ -15,8 +15,8 @@ h2
       | 如有任何疑问，请单击页面底部的
       span.label.label-success Email me!
       | 按钮。
-=render 'shared/datatable', columns: [{ranking: 'Ranking'}, {name: 'School'}, {offers_count: 'Offers Count'}, {city: 'City'}, {state: 'State'}], data: @offers
-.btn-group
+.btn-group style='margin-bottom: 20px;'
   =link_to '添加新的录取结果', new_offer_path, class: 'btn btn-large btn-success span5'
   =link_to '注册账号，填写最终去向和联系方式', new_user_path, class: "btn btn-large btn-primary span6 #{signed_in? ? 'disabled' : ''}"
+=render 'shared/datatable', columns: [{ranking: 'Ranking'}, {name: 'School'}, {offers_count: 'Offers Count'}, {city: 'City'}, {state: 'State'}], data: @offers
 .clearfix

@@ -43,8 +43,8 @@ class User < ActiveRecord::Base
   validates :person_id, presence: true, uniqueness: true
 
   validates :alt_email, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
-  validates :cell_cn, length: { is: 11 }, allow_blank: true
-  validates :cell_us, length: { is: 10 }, allow_blank: true
+  validates :cell_cn, format: { with: /\d{3} \d{4} \d{4}/ }, allow_blank: true
+  validates :cell_us, format: { with: /\(\d{3}\) \d{3}-\d{4}/ }, allow_blank: true
 
   belongs_to :person
   belongs_to :school

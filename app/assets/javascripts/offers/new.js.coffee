@@ -29,5 +29,4 @@ dupResult = (p, s, cb) ->
   $.getJSON '/offers/exist',
     person: p
     school: s
-  , (data) ->
-    cb (data is '1')
+  , (data) -> cb (data == 1)

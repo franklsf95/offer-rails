@@ -40,12 +40,13 @@ class UsersController < ApplicationController
     users = User.all
     @users = []
     users.each do |u|
-      @users << {id: u.id, name: u.name, class: class_from_id(u.class_id), school: u.school.name,
-        city: u.school.city, state: u.school.state}
+      h = {id: u.id, name: u.name, class: class_from_id(u.class_id)}
+      h.merge!({school: u.school.name, city: u.school.city, state: u.school.state})  if not u.school.nil?
+      @users << h
     end
     respond_to do |format|
       format.html
-      format.json { render json: users }
+      format.json { render json: @users }
     end
   end
 
@@ -54,6 +55,16 @@ class UsersController < ApplicationController
     @users = []
     users.each do |u|
       @users << {name: u.name, lon: u.school.lon, lat: u.school.lat}
+    end
+  end
+
+  def offers
+    offers = Offer.all
+    @offers = []
+    offers.each do |o|
+      h = {name: o.person.name, school: o.school.name, ranking: o.school.ranking}
+      h.merge!({class: class_from_id(o.person.user.class_id)})  if not o.person.user.nil?
+      @offers << h
     end
   end
 

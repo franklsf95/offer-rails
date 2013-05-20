@@ -9,7 +9,7 @@ OfferRails::Application.routes.draw do
   resources :schools, only: [:index]
   resources :sessions, only: [:create, :destroy]
   resources :users do
-    collection { get 'map' }
+    collection { get 'map', 'offers' }
   end
   resources :people, only: [] do
     collection { get 'available' }

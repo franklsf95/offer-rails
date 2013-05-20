@@ -11,7 +11,7 @@ table#datatable.table.table-bordered.table-striped
       td=class_from_id @user.class_id
     tr
       td 最终去向
-      td=@user.school.name
+      td=@user.school.name if not @user.school.nil?
     tr
       td 所有录取
       td
