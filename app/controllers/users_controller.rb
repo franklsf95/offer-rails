@@ -1,6 +1,7 @@
 #encoding: UTF-8
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update]
+  include UsersHelper
+  before_filter :signed_in_user, only: [:edit, :update, :index]
   before_filter :correct_user  , only: [:edit, :update]
   def new
     @user = User.new
@@ -35,13 +36,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    users = User.all
+    @users = []
+    users.each do |u|
+      @users << {name: u.name, class: class_from_id(u.class_id), school: u.school.name,
+        city: u.school.city, state: u.school.state}
+    end
+  end
+
   private
   def signed_in_user
-    redirect_to root_path error: '请先登录。' unless signed_in?
+    redirect_to root_path, flash: {error: '请先登录。'} unless signed_in?
   end
 
   def correct_user
     @user = User.find params[:id]
-    redirect_to @user, error: '不能修改其他用户的信息。' unless current_user == @user
+    redirect_to @user, flash: {error: '不能修改其他用户的信息。'} unless current_user == @user
   end
 end

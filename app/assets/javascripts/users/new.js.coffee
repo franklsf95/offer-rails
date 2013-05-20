@@ -8,7 +8,7 @@ $bs  = $ '#btn-submit'
 $ ->
   $uname.change getPersonId
   $('form').keypress (e) ->
-    e.preventDefault() if e.keyCode == 13
+    getPersonId() if e.keyCode == 13
 
 getPersonId = ->
   $c.html ''
@@ -32,3 +32,4 @@ getPersonId = ->
       $pid.val data
       $bs.removeAttr 'disabled'
       $mw.slideDown()
+  false

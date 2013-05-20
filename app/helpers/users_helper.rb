@@ -10,4 +10,9 @@ module UsersHelper
     end
     arr
   end
+
+  def class_from_id(i)
+    return "高三 #{i} 班"      if i >= 1 and i <= 14
+    return "ICC S3C#{i - 20}" if i > 20 and i <= 25
+  end
 end
