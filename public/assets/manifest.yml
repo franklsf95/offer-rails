@@ -5,8 +5,8 @@ application.js: application-2ec6b956322be6f07e44ae84c57e22ae.js
 application/index.js: application-2ec6b956322be6f07e44ae84c57e22ae.js
 offers.js: offers-f00251f452c48102b58e406cc891259e.js
 offers/index.js: offers-f00251f452c48102b58e406cc891259e.js
-offers/new.js: offers/new-ce09e0b874d1cfe6053f6c2a2e9c2d85.js
-offers/new/index.js: offers/new-ce09e0b874d1cfe6053f6c2a2e9c2d85.js
+offers/new.js: offers/new-b4425561b52d95e604fe39090cd9eac5.js
+offers/new/index.js: offers/new-b4425561b52d95e604fe39090cd9eac5.js
 schools.js: schools-a7fa98ba2ef09a5dcc079d3f014a4e3c.js
 schools/index.js: schools-a7fa98ba2ef09a5dcc079d3f014a4e3c.js
 sessions.js: sessions-a7fa98ba2ef09a5dcc079d3f014a4e3c.js
