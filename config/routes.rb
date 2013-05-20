@@ -8,7 +8,9 @@ OfferRails::Application.routes.draw do
   end
   resources :schools, only: [:index]
   resources :sessions, only: [:create, :destroy]
-  resources :users
+  resources :users do
+    collection { get 'map' }
+  end
   resources :people, only: [] do
     collection { get 'available' }
   end
