@@ -11,7 +11,7 @@
 #
 
 class Offer < ActiveRecord::Base
-  attr_accessible :person_id, :school_id
+  attr_accessible :person_id, :school_id, :ip
 
   validates :person_id, presence: true
   validates :school_id, presence: true

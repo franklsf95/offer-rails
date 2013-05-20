@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'slim'
+gem 'pg'
 
 gem 'specific_assets'
 gem 'active_link_to' # active_link_to for bootstrap navigation
@@ -20,7 +21,6 @@ gem 'leaflet-rails'
 gem 'leaflet-markercluster-rails'
 
 group :development do
-  gem 'sqlite3'
   gem 'annotate'
   gem 'rspec-rails'
   gem 'guard'
@@ -33,10 +33,6 @@ group :test do
   gem 'capybara'
   gem 'spork'
   gem 'factory_girl_rails'
-end
-
-group :production do
-  gem 'pg'
 end
 
 # Gems used only for assets and not required

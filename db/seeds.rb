@@ -1,7 +1,7 @@
 db = ActiveRecord::Base.connection()
 
-db.execute "
-INSERT INTO `schools` (`id`, `ranking`, `name`, `city`, `state`, `lat`, `lon`, `tuition`, `enrollment`, `accept_rate`, `retention_rate`, `graduation_rate`, `group`) VALUES
+db.execute %q{
+INSERT INTO "schools" ("id", "ranking", "name", "city", "state", "lat", "lon", "tuition", "enrollment", "accept_rate", "retention_rate", "graduation_rate", "group") VALUES
 (1, 1, 'Harvard University', 'Cambridge', 'MA', '42.3741887', '-71.1165870', '40866', 19872, '6.3%', '98%', '97', 'U'),
 (2, 1, 'Princeton University', 'Princeton', 'NJ', '40.3440231', '-74.6515988', '38650', 7859, '8.5%', '98%', '96', 'U'),
 (3, 3, 'Yale University', 'New Haven', 'CT', '41.3163244', '-72.9223431', '42300', 11875, '7.7%', '99%', '97', 'U'),
@@ -152,4 +152,4 @@ INSERT INTO `schools` (`id`, `ranking`, `name`, `city`, `state`, `lat`, `lon`, `
 (1048, 46, 'Gettysburg College', 'Gettysburg', 'PA', '39.8317140', '-77.2342286', '44210', 2494, '39.9%', '91%', '85', 'C'),
 (1049, 49, 'Denison University', 'Granville', 'OH', '40.0740253', '-82.5226425', '42280', 2272, '48.3%', '89%', '79', 'C'),
 (1050, 49, 'Furman University', 'Greenville', 'SC', '34.9245893', '-82.4391367', '41532', 3028, '83.0%', '91%', '87', 'C');
-"
+}

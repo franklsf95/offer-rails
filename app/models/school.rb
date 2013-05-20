@@ -20,7 +20,7 @@
 
 class School < ActiveRecord::Base
   attr_accessible :ranking, :name, :city, :state, :lat, :lon, :tuition,
-      :enrollment, :accept_rate, :retention_rate, :graduation_rate, :type
+      :enrollment, :accept_rate, :retention_rate, :graduation_rate, :group, :offers_count
 
   has_many :offers
   has_many :people, through: :offer
