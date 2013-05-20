@@ -40,8 +40,12 @@ class UsersController < ApplicationController
     users = User.all
     @users = []
     users.each do |u|
-      @users << {name: u.name, class: class_from_id(u.class_id), school: u.school.name,
+      @users << {id: u.id, name: u.name, class: class_from_id(u.class_id), school: u.school.name,
         city: u.school.city, state: u.school.state}
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json: users }
     end
   end
 
