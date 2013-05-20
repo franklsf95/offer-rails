@@ -1,7 +1,12 @@
--provide :title, '创建新用户'
-h2 创建新用户
+-provide :title, '领取账户'
+-add_js 'users/new'
+h2 领取账户
 .alert.alert-info
-  p 在创建新用户之前，请确认你是人大附中2013届出国同学，并且添加了至少一个 offer 记录。
+  ul
+    li 在创建新用户之前，请确认你是人大附中2013届出国同学，并且添加了至少一个 offer 记录。
+    li 如果自己的账户已被他人领取或忘记登录密码，请联系管理员重置账号。
+    -if signed_in?
+      li 你已经登录。请不要擅自领取别人的账户。
 =simple_form_for @user, html: {class: 'form-horizontal'} do |f|
   =field_set_tag do
     =render 'shared/error_messages', object: f.object

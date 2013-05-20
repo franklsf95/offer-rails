@@ -1,4 +1,40 @@
 -provide :title, @user.name
 h1=@user.name
-p=@user.email
-=debug @user
+table#datatable.table.table-bordered.table-striped
+  thead
+    tr
+      th Item
+      th Value
+  tbody
+    tr
+      td 班级
+      td=class_from_id @user.class_id
+    tr
+      td 最终去向
+      td=@user.school.name
+    tr
+      td 所有录取
+      td
+        ul
+          -@user.person.schools.each do |s|
+            li=s.name
+    tr
+      td E-mail
+      td=@user.email
+    tr
+      td 大学 E-mail
+      td=@user.alt_email
+    tr
+      td 手机 (中国)
+      td=@user.cell_cn
+    tr
+      td 电话 (美国)
+      td=@user.cell_us
+    tr
+      td Skype
+      td=@user.skype
+    tr
+      td Facebook
+      td=@user.facebook
+-if @user == current_user
+  =link_to '编辑', edit_user_path(current_user), class: 'btn btn-primary'
