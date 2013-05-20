@@ -24,6 +24,7 @@ class School < ActiveRecord::Base
 
   has_many :offers
   has_many :people, through: :offer
+  has_many :users
   
   def self.all_brief
     School.select 'id, name'

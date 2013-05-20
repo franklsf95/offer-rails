@@ -47,5 +47,5 @@ class User < ActiveRecord::Base
   validates :cell_us, length: { is: 10 }, allow_blank: true
 
   belongs_to :person
-  has_one :school
+  belongs_to :school
 end
