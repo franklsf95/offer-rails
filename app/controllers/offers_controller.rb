@@ -13,9 +13,10 @@ class OffersController < ApplicationController
       return
     end
     cnt = 0
+    ip = request.remote_ip
     params[:offer][:school].each do |s|
       next if s.empty?
-      @offer = Offer.new person_id: person.id, school_id: s
+      @offer = Offer.new person_id: person.id, school_id: s, ip: ip
       if not @offer.save
         flash[:error] = '添加失败：' + @offer.errors.full_messages.to_sentence
         redirect_to offers_path
