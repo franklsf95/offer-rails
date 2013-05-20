@@ -1,0 +1,10 @@
+table#datatable.table.table-bordered.table-striped.table-condensed
+  thead
+    tr
+      -columns.each do |c|
+        th=c.values.first
+  tbody
+    -data.each do |o|
+      tr
+        -columns.each do |c|
+          td=o[c.keys.first]

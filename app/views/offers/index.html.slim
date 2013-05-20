@@ -1,4 +1,4 @@
--provide :recline, true
+-provide :datatable, true
 h2
   | 陈涉少时，尝与人佣耕，辍耕之垄上，怅恨久之，曰：
   br 「苟富贵，无相忘。」——《史记·陈涉世家》
@@ -14,5 +14,7 @@ h2
       | 如有任何疑问，请单击页面底部的
       span.label.label-success Email me!
       | 按钮。
-#explorer
-=link_to '添加新的录取结果', new_offer_path, class: 'btn btn-large btn-primary btn-block'
+=render 'shared/datatable', columns: [{ranking: 'Ranking'}, {name: 'School'}, {offers_count: 'Offers Count'}, {city: 'City'}, {state: 'State'}], data: @offers
+=link_to '添加新的录取结果', new_offer_path, class: 'btn btn-large btn-primary span5'
+=link_to '填写最终去向', new_user_path, class: 'btn btn-large btn-success span5'
+.clearfix

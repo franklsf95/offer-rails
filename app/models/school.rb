@@ -26,12 +26,12 @@ class School < ActiveRecord::Base
   has_many :people, through: :offer
   
   def self.all_brief
-    School.all select: 'id, name'
+    School.select 'id, name'
   end
 
   def self.all_count
-    School.select('ranking, name as school, offers_count, city, state, lat, lon')
+    School.select('ranking, name, offers_count, city, state')
           .where('offers_count > 0')
-          .order('ranking DESC')
+          .order('ranking ASC')
   end
 end

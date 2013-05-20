@@ -28,11 +28,11 @@ class OffersController < ApplicationController
   end
 
   def index
-    @offers = Offer.all
+    @offers = School.all_count
     respond_to do |format|
       format.html
-      format.csv { render csv: School.all_count }
-      format.json { render json: School.all_count }
+      format.csv { render csv: @offers }
+      format.json { render json: @offers }
     end
   end
 
