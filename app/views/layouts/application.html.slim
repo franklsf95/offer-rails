@@ -4,7 +4,6 @@ html
     meta charset='utf-8'
     title= full_title yield :title
     = stylesheet_link_tag 'application', media: 'all'
-    = stylesheet_link_tag params[:controller]
     - css_assets.each do |css|
       =stylesheet_link_tag css
     = csrf_meta_tags
@@ -19,7 +18,6 @@ html
         .alert class="alert-#{k}" =v
       = yield
       = render 'layouts/footer'
-      = debug params
   
     = javascript_include_tag 'application'
     - js_assets.each do |js|
