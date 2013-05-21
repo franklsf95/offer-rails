@@ -58,10 +58,8 @@ class UsersController < ApplicationController
       format.html
       format.json do
         @users = []
-        User.includes(:school).all.map do |u|
-          h = {id: u.id, name: u.name}
-          h.merge! ({school: u.school.name, lon: u.school.lon, lat: u.school.lat})  if not u.school.nil?
-          @users << h
+        User.includes(:school).all.each do |u|
+          @users << {id: u.id, name: u.name, school: u.school.name, lon: u.school.lon, lat: u.school.lat}  if not u.school.nil?
         end
         render json: @users
       end
