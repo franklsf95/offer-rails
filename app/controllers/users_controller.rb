@@ -53,8 +53,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        @users = User.includes(:school).all.map do |u|
-          {id: u.id, school: u.school.name, lon: u.school.lon, lat: u.school.lat}
+        @users = []
+        User.includes(:school).all.map do |u|
+          h = {id: u.id, name: u.name}
+          h.merge! ({school: u.school.name, lon: u.school.lon, lat: u.school.lat})  if not u.school.nil?
+          @users << h
         end
         render json: @users
       end

@@ -11,7 +11,8 @@ cmLayer = L.tileLayer(mapUrl, attribution: mapAttr, subdomains: mapSub).addTo ma
 markers = new L.MarkerClusterGroup()
 $.getJSON '/users/map.json', (data) ->
   for i in data
-    marker = new L.Marker (new L.LatLng i.lat, i.lon), title: i.school
-    marker.bindPopup i.school
+    markerTitle = "#{i.name} @ #{i.school}"
+    marker = new L.Marker (new L.LatLng i.lat, i.lon), title: markerTitle
+    marker.bindPopup markerTitle
     markers.addLayer marker
   map.addLayer markers
