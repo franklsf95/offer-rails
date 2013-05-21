@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
   include UsersHelper
   before_filter :signed_in_user, only: [:index, :offers, :show, :edit, :update]
-  before_filter :correct_user  , only: [:edit, :update]
+  before_filter :correct_user  , only: [:edit, :update, :destroy]
   def new
     @user = User.new
   end
@@ -10,9 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create params[:user]
     if @user.save
-      flash[:success] = "注册成功！欢迎使用 Offers，#{@user.name}！"
       sign_in @user
-      redirect_to edit_user_path @user
+      redirect_to edit_user_path @user, flash: {success: "注册成功！欢迎使用 Offers，#{@user.name}！"}
     else
       render 'new'
     end
@@ -29,11 +28,16 @@ class UsersController < ApplicationController
   def update
     #@user already defined in correct_user
     if @user.update_attributes(params[:user])
-      flash[:success] = '成功更新了个人信息！'
-      redirect_to @user
+      redirect_to @user, flash: {success: '成功更新了个人信息！'}
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    sign_out
+    redirect_to root_path, flash: {success: '成功删除了用户！'}
   end
 
   def index
