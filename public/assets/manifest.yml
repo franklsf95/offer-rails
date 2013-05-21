@@ -15,8 +15,8 @@ users.js: users-a7fa98ba2ef09a5dcc079d3f014a4e3c.js
 users/index.js: users-a7fa98ba2ef09a5dcc079d3f014a4e3c.js
 users/edit.js: users/edit-a8954940871758f8e13150baf694870d.js
 users/edit/index.js: users/edit-a8954940871758f8e13150baf694870d.js
-users/map.js: users/map-8667be0623802eb387ff433b55810691.js
-users/map/index.js: users/map-8667be0623802eb387ff433b55810691.js
+users/map.js: users/map-fbac9cef36af150e4a21b24f5f2dd5f1.js
+users/map/index.js: users/map-fbac9cef36af150e4a21b24f5f2dd5f1.js
 users/new.js: users/new-b90112506e19714eadc9c058f787110d.js
 users/new/index.js: users/new-b90112506e19714eadc9c058f787110d.js
 _datatable.css: _datatable-0cf8ca5e895010f6df8e4a6cf9bcb51e.css
