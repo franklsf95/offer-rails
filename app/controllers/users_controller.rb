@@ -1,7 +1,7 @@
 #encoding: UTF-8
 class UsersController < ApplicationController
   include UsersHelper
-  before_filter :signed_in_user, only: [:index, :show, :edit, :update]
+  before_filter :signed_in_user, only: [:index, :offers, :show, :edit, :update]
   before_filter :correct_user  , only: [:edit, :update]
   def new
     @user = User.new
@@ -51,10 +51,16 @@ class UsersController < ApplicationController
   end
 
   def map
-    users = User.all
-    @users = []
-    users.each do |u|
-      @users << {name: u.name, lon: u.school.lon, lat: u.school.lat}
+    respond_to do |format|
+      format.html
+      format.json do
+        users = User.all
+        @users = []
+        users.each do |u|
+          @users << {id: u.id, school: u.school.name, lon: u.school.lon, lat: u.school.lat}
+        end
+        render json: @users
+      end
     end
   end
 

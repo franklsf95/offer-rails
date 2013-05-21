@@ -1,5 +1,7 @@
+-add_css '_datatable'
+-add_js '_datatable'
 -if defined? rowlink
-  -add_css 'bootstrap-rowlink'
+  -add_css '_bootstrap-rowlink'
   -add_js 'bootstrap-rowlink'
 table#datatable.table.table-bordered.table-striped.table-condensed data-provides='rowlink'
   thead
@@ -9,7 +11,10 @@ table#datatable.table.table-bordered.table-striped.table-condensed data-provides
   tbody
     -data.each do |o|
       tr
-        -columns.each do |c|
-          td=o[c.keys.first]
         -if defined? rowlink
-          td style='display: none;' =link_to '', user_path(o[:id])
+          td=link_to o[columns.first.keys.first], user_path(o[:id])
+          -columns.drop(1).each do |c|
+            td=o[c.keys.first]
+        -else
+          -columns.each do |c|
+            td=o[c.keys.first]

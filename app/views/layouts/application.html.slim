@@ -7,8 +7,6 @@ html
     - css_assets.each do |css|
       =stylesheet_link_tag css
     = csrf_meta_tags
-    - if not yield(:datatable).empty?
-      =stylesheet_link_tag '_datatable'
     /![if lt IE 9]
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
   body
@@ -22,6 +20,4 @@ html
     = javascript_include_tag 'application'
     - js_assets.each do |js|
       =javascript_include_tag js
-    - if not yield(:datatable).empty?
-      =javascript_include_tag '_datatable'
     = javascript_include_tag params[:controller]
