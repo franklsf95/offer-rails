@@ -37,9 +37,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    users = User.all
     @users = []
-    users.each do |u|
+    User.includes(:school).all.each do |u|
       h = {id: u.id, name: u.name, class: class_from_id(u.class_id)}
       h.merge!({school: u.school.name, city: u.school.city, state: u.school.state})  if not u.school.nil?
       @users << h
@@ -54,10 +53,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        users = User.all
-        @users = []
-        users.each do |u|
-          @users << {id: u.id, school: u.school.name, lon: u.school.lon, lat: u.school.lat}
+        @users = User.includes(:school).all.map do |u|
+          {id: u.id, school: u.school.name, lon: u.school.lon, lat: u.school.lat}
         end
         render json: @users
       end
@@ -65,13 +62,13 @@ class UsersController < ApplicationController
   end
 
   def offers
-    offers = Offer.all
     @offers = []
-    offers.each do |o|
+    Offer.includes(:school, person: :user).all.each do |o|
       h = {name: o.person.name, school: o.school.name, ranking: o.school.ranking}
       h.merge!({class: class_from_id(o.person.user.class_id)})  if not o.person.user.nil?
       @offers << h
     end
+    @offers.sort_by! { |o| o[:school] }
   end
 
   private

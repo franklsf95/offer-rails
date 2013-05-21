@@ -61,7 +61,7 @@ module OfferRails
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.log_level = :warn
+    # config.log_level = :warn
 
     config.APP_TITLE = '人大附中2013届出国生录取结果统计及联络系统'
   end
