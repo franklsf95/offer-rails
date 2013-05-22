@@ -43,10 +43,11 @@ class UsersController < ApplicationController
   def index
     @users = []
     User.includes(:school).all.each do |u|
-      h = {id: u.id, name: u.name, class: class_from_id(u.class_id)}
+      h = {id: u.id, name: u.name, class: class_from_id(u.class_id), email: u.email}
       h.merge!({school: u.school.name, city: u.school.city, state: u.school.state})  if not u.school.nil?
       @users << h
     end
+    @users.sort_by! { |u| u[:school] }
     respond_to do |format|
       format.html
       format.json { render json: @users }
@@ -83,6 +84,6 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find params[:id]
-    redirect_to @user, flash: {error: '不能修改其他用户的信息。'} unless current_user == @user
+    redirect_to @user, flash: {error: '不能修改其他用户的信息。'} unless current_user == @user || current_user.superuser?
   end
 end
