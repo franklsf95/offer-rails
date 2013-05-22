@@ -44,7 +44,11 @@ class UsersController < ApplicationController
     @users = []
     User.includes(:school).all.each do |u|
       h = {id: u.id, name: u.name, class: class_from_id(u.class_id), email: u.email}
-      h.merge!({school: u.school.name, city: u.school.city, state: u.school.state})  if not u.school.nil?
+      if u.school.nil?
+        h.merge!({school: ''})
+      else
+        h.merge!({school: u.school.name, city: u.school.city, state: u.school.state})
+      end
       @users << h
     end
     @users.sort_by! { |u| u[:school] }
