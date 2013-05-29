@@ -8,11 +8,20 @@ map = L.map 'map',
   center: new L.LatLng(38, -96)
   zoom: 4
 cmLayer = L.tileLayer(mapUrl, attribution: mapAttr, subdomains: mapSub).addTo map
-markers = new L.MarkerClusterGroup()
+markercluster = new L.MarkerClusterGroup()
+markers = new L.layerGroup()
+
 $.getJSON '/users/map.json', (data) ->
   for i in data
     markerTitle = "#{i.name} @ #{i.school}"
     marker = new L.Marker (new L.LatLng i.lat, i.lon), title: markerTitle
     marker.bindPopup markerTitle
+    markercluster.addLayer marker
     markers.addLayer marker
-  map.addLayer markers
+  map.addLayer markercluster
+
+layers =
+  'Seperated Markers': markers
+  'Marker Clusters': markercluster
+
+L.control.layers(layers).addTo map
