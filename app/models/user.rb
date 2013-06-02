@@ -19,6 +19,8 @@
 #  skype                 :string(255)
 #  facebook              :string(255)
 #  notes                 :text
+#  superuser             :boolean          default(FALSE)
+#  observer              :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -39,8 +41,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
 
-  validates :name,      presence: true
-  validates :person_id, presence: true, uniqueness: true
+  with_options unless: :observer? do |u|
+    u.validates :name,      presence: true
+    u.validates :person_id, presence: true, uniqueness: true
+  end
 
   validates :alt_email, format: { with: VALID_EMAIL_REGEX }, allow_blank: true
   validates :cell_cn, format: { with: /\d{3} \d{4} \d{4}/ }, allow_blank: true
@@ -48,4 +52,8 @@ class User < ActiveRecord::Base
 
   belongs_to :person
   belongs_to :school
+
+  def observer?
+    observer
+  end
 end

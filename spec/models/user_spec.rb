@@ -19,6 +19,8 @@
 #  skype                 :string(255)
 #  facebook              :string(255)
 #  notes                 :text
+#  superuser             :boolean          default(FALSE)
+#  observer              :boolean          default(FALSE)
 #
 
 require 'spec_helper'

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   include UsersHelper
   before_filter :signed_in_user, only: [:index, :offers, :show, :edit, :update]
   before_filter :correct_user  , only: [:edit, :update, :destroy]
+
   def new
     @user = User.new
   end
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
   def index
     @users = []
-    User.includes(:school).all.each do |u|
+    User.includes(:school).where(observer: false).each do |u|
       h = {id: u.id, name: u.name, class: class_from_id(u.class_id), email: u.email}
       if u.school.nil?
         h.merge!({school: ''})
@@ -63,7 +64,7 @@ class UsersController < ApplicationController
       format.html
       format.json do
         @users = []
-        User.includes(:school).all.each do |u|
+        User.includes(:school).where(observer: false).each do |u|
           @users << {id: u.id, name: u.name, school: u.school.name, lon: u.school.lon, lat: u.school.lat}  if not u.school.nil?
         end
         render json: @users
@@ -73,7 +74,7 @@ class UsersController < ApplicationController
 
   def offers
     @offers = []
-    Offer.includes(:school, person: :user).all.each do |o|
+    Offer.includes(:school, person: :user).where(observer: false).each do |o|
       h = {name: o.person.name, school: o.school.name, ranking: o.school.ranking}
       h.merge!({class: class_from_id(o.person.user.class_id)})  if not o.person.user.nil?
       @offers << h

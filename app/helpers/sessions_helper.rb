@@ -13,6 +13,11 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def is_ob?
+    return false  if current_user.nil?
+    current_user.observer
+  end
+
   def sign_out
     self.current_user = nil
     cookies.delete :remember_token
