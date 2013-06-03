@@ -24,9 +24,8 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation,
-      :name, :class_id, :alt_email, :cell_cn, :cell_us,
-      :person_id, :school_id, :skype, :facebook, :notes
+  attr_protected :superuser, :observer
+  attr_protected as: :superuser
 
   before_save do |user|
     user.email.downcase!

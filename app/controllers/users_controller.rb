@@ -3,8 +3,13 @@ class UsersController < ApplicationController
   include UsersHelper
   before_filter :signed_in_user, only: [:index, :offers, :show, :edit, :update]
   before_filter :correct_user  , only: [:edit, :update, :destroy]
+  before_filter :superuser     , only: [:new_ob, :create_ob]
 
   def new
+    @user = User.new
+  end
+
+  def new_ob
     @user = User.new
   end
 
@@ -15,6 +20,18 @@ class UsersController < ApplicationController
       redirect_to edit_user_path @user, flash: {success: "注册成功！欢迎使用 Offers，#{@user.name}！"}
     else
       render 'new'
+    end
+  end
+
+  def create_ob
+    @user = User.create params[:user], as: :superuser
+    if not @user.observer?
+      @user.errors[:base] = '只能创建观察员！'
+      render 'new_ob'
+    elsif @user.save
+      redirect_to root_path, flash: {success: "成功创建了观察员：#{@user.email}！"}
+    else
+      render 'new_ob'
     end
   end
   
@@ -89,6 +106,10 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find params[:id]
-    redirect_to @user, flash: {error: '不能修改其他用户的信息。'} unless current_user == @user || current_user.superuser?
+    redirect_to @user, flash: {error: '不能修改其他用户的信息。'} unless current_user == @user || is_super?
+  end
+
+  def superuser
+    redirect_to root_path, flash: {error: '权限不足。'} unless is_super?
   end
 end

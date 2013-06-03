@@ -19,8 +19,7 @@
 #
 
 class School < ActiveRecord::Base
-  attr_accessible :ranking, :name, :city, :state, :lat, :lon, :tuition,
-      :enrollment, :accept_rate, :retention_rate, :graduation_rate, :group, :offers_count
+  attr_accessible #nil
 
   has_many :offers
   has_many :people, through: :offer

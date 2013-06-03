@@ -1,0 +1,11 @@
+-provide :title, '创建一个观察者'
+h2 创建观察者
+=simple_form_for @user, html: {class: 'form-horizontal'}, url: {action: 'create_ob'} do |f|
+  =field_set_tag do
+    =render 'shared/error_messages', object: f.object
+    =f.input :name, label: '姓名'
+    =f.input :email, label: '电子邮箱', hint: '填写的E-mail地址用于登录'
+    =f.input :password, label: '密码'
+    =f.input :password_confirmation, label: '确认密码'
+    =f.hidden_field :observer, value: true
+    =f.button :submit, '注册', class: 'btn-primary btn-large offset2', id: 'btn-submit'

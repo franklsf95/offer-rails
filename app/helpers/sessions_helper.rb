@@ -13,9 +13,12 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def is_super?
+    signed_in? and current_user.superuser?
+  end
+
   def is_ob?
-    return false  if current_user.nil?
-    current_user.observer
+    signed_in? and current_user.observer?
   end
 
   def sign_out
