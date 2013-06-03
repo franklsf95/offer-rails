@@ -101,7 +101,7 @@ class UsersController < ApplicationController
 
   private
   def signed_in_user
-    redirect_to root_path, flash: {error: '请先登录。'} unless signed_in?
+    redirect_to login_path, flash: {error: '请先登录。'} unless signed_in?
   end
 
   def correct_user
@@ -110,6 +110,6 @@ class UsersController < ApplicationController
   end
 
   def superuser
-    redirect_to root_path, flash: {error: '权限不足。'} unless is_super?
+    redirect_to login_path, flash: {error: '权限不足。'} unless is_super?
   end
 end

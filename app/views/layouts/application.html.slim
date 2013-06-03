@@ -16,6 +16,9 @@ html
         .alert class="alert-#{k}" =v
       = yield
       = render 'layouts/footer'
+      -if not Rails.env.production?
+        =debug params
+        =debug current_user
   
     = javascript_include_tag 'application'
     - js_assets.each do |js|

@@ -29,5 +29,5 @@
                 =link_to '[观察者] 登出', logout_path, method: :delete
             -else
               a href='#' class='dropdown-toggle' data-toggle='dropdown' 登录
-              .dropdown-menu#drop-login
+              .dropdown-menu#drop-login style="display: #{params[:login] ? 'block' : 'none'};"
                 =render 'shared/form_login'

@@ -18,7 +18,8 @@ OfferRails::Application.routes.draw do
     collection { get 'available' }
   end
 
-  match '/logout', to: 'sessions#destroy', via: :delete
+  get '/login', to: 'offers#index', login: true
+  get '/logout', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
