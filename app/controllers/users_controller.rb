@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.create params[:user]
     if @user.save
       sign_in @user
-      redirect_to edit_user_path @user, flash: {success: "注册成功！欢迎使用 Offers，#{@user.name}！"}
+      redirect_to edit_user_path(@user), flash: {success: "注册成功！欢迎使用 Offers，#{@user.name}！"}
     else
       render 'new'
     end
