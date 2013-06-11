@@ -91,7 +91,7 @@ class UsersController < ApplicationController
 
   def offers
     @offers = []
-    Offer.includes(:school, person: :user).where(observer: false).each do |o|
+    Offer.includes(:school, person: :user).each do |o|
       h = {name: o.person.name, school: o.school.name, ranking: o.school.ranking}
       h.merge!({class: class_from_id(o.person.user.class_id)})  if not o.person.user.nil?
       @offers << h
