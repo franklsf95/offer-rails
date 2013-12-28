@@ -1,6 +1,8 @@
-offer
+Offers
 =====
 
-An online offer-tracking system for RDFZ 2013
+Live: http://offers2013.herokuapp.com
 
-PHP version: http://franklsf.org/offer
+An online offer-tracking system for RDFZ 2013.
+
+PHP version: https://github.com/franklsf95/offer
